@@ -31,6 +31,8 @@
         <div class="img-upload__wrapper">
           <h2 class="img-upload__title  visually-hidden">Загрузка фотографии</h2>
           <form class="img-upload__form" id="upload-select-image" method="post" enctype="multipart/form-data" autocomplete="off">
+            <input type="hidden" id="scaleInput" name="scale" value="1"> <!-- Скрытое поле для значения масштаба -->
+              <div id="scaleSlider"></div>
 
             <!-- Изначальное состояние поля для загрузки изображения -->
             <fieldset class="img-upload__start">
@@ -235,6 +237,7 @@
   <script type="module" src="js/pictures.js"></script>
   <script type="module" src="js/fullScreen.js"></script>
   <script type="module" src="js/form.js"></script>
+  <script type="module" src="js/slider.js"></script>
   <script src="js/functions.js"></script>
 </body>
 </html>
