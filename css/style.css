@@ -37,6 +37,11 @@ body {
   background-color: #232321;
 }
 
+#scaleSlider {
+    width: 100%;
+    margin-top: 10px;
+}
+
 main {
   position: relative;
 }
