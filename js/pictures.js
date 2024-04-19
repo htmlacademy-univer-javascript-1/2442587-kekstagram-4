@@ -23,3 +23,44 @@ var renderPhotos = (photos) => {
 };
 
 renderPhotos(tempData);
+
+
+document.addEventListener('DOMContentLoaded', () => {
+    const imgFilters = document.querySelector('.img-filters');
+    imgFilters.classList.remove('img-filters--inactive');
+});
+
+
+const filterButtons = document.querySelectorAll('.img-filters__button');
+let debounceTimeout;
+
+const handleFilterChange = (filterType) => {
+
+    clearPhotosContainer();
+
+
+    switch (filterType) {
+        case 'default':
+            renderPhotos(defaultPhotos);
+            break;
+        case 'random':
+            renderPhotos(getRandomPhotos());
+            break;
+        case 'discussed':
+            renderPhotos(getDiscussedPhotos());
+            break;
+    }
+};
+
+filterButtons.forEach(button => {
+    button.addEventListener('click', () => {
+
+        if (debounceTimeout) {
+            clearTimeout(debounceTimeout);
+        }
+        debounceTimeout = setTimeout(() => {
+            handleFilterChange(button.id);
+        }, 500);
+    });
+});
+
