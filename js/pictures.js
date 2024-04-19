@@ -64,3 +64,18 @@ filterButtons.forEach(button => {
     });
 });
 
+const imageForm = document.getElementById('imageForm');
+const imageInput = document.getElementById('imageInput');
+const imagePreview = document.getElementById('imagePreview');
+
+imageInput.addEventListener('change', (event) => {
+
+    if (event.target.files && event.target.files[0]) {
+        const reader = new FileReader();
+        reader.onload = (e) => {
+            imagePreview.src = e.target.result;
+            applyChanges();
+        };
+        reader.readAsDataURL(event.target.files[0]);
+    }
+});
